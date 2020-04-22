@@ -1,16 +1,18 @@
-import React from 'react';
-import {Block, Button} from "../../components";
-import { Form, Input, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import './Auth.scss';
+import {Checkbox, Form, Input} from "antd";
+import {UserOutlined, LockOutlined} from '@ant-design/icons';
+import {Button} from "../../../components";
+import React from "react";
+import {Link} from 'react-router-dom'
+import Block from "../../../components/Block";
 
-const Auth = () => {
-    const onFinish = values => {
-        console.log('Received values of form: ', values);
-    };
-    return (
-        <section className="auth">
-            <div className="auth__content">
+const onFinish = values => {
+    console.log('Received values of form: ', values);
+};
+
+class LoginForm {
+    render() {
+        return (
+            <div>
                 <div className="auth__top">
                     <h2>Войти в аккаунт</h2>
                     <p>Пожалуйста, войдите в свой аккаунт</p>
@@ -33,7 +35,10 @@ const Auth = () => {
                                 },
                             ]}
                         >
-                            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                            <Input
+                                size="large"
+                                prefix={<UserOutlined className="site-form-item-icon"/>}
+                                placeholder="Username"/>
                         </Form.Item>
                         <Form.Item
                             name="password"
@@ -45,7 +50,8 @@ const Auth = () => {
                             ]}
                         >
                             <Input
-                                prefix={<LockOutlined className="site-form-item-icon" />}
+                                size="large"
+                                prefix={<LockOutlined className="site-form-item-icon"/>}
                                 type="password"
                                 placeholder="Password"
                             />
@@ -55,22 +61,22 @@ const Auth = () => {
                                 <Checkbox>Remember me</Checkbox>
                             </Form.Item>
 
-                            <a className="login-form-forgot" href="">
-                                Forgot password
-                            </a>
                         </Form.Item>
 
                         <Form.Item>
-                            <Button type="primary" htmlType="submit" className="login-form-button">
-                                Log in
+                            <Button size="large" type="primary" htmlType="submit" className="login-form-button">
+                                Войти в аккаунт
                             </Button>
-                            Or <a href="">register now!</a>
+                        </Form.Item>
+
+                        <Form.Item>
+                            <Link href="#" to="/register">Зарегистрироваться</Link>
                         </Form.Item>
                     </Form>
                 </Block>
             </div>
-        </section>
+        )
+    }
+}
 
-    );
-};
-export default Auth;
+export default LoginForm;
