@@ -1,3 +1,3 @@
-import LoginForm from './containers/LoginForm.js';
+import LoginForm from "./containers/LoginForm";
 
-export  default LoginForm;
+export default LoginForm;
