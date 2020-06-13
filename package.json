@@ -1,9 +1,9 @@
 {
-  "name": "chat",
-  "author": "Archakov Denis <hello@archakov.im> (https://github.com/Archakov06)",
+  "name": "ChatDesctop",
   "license": "MIT",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kelbikhanov.github.io/ChatDesctop",
   "dependencies": {
     "@babel/core": "7.2.2",
     "@svgr/webpack": "4.1.0",
@@ -65,7 +65,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -125,5 +127,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.0.0"
   }
 }
